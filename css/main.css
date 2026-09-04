@@ -1,0 +1,55 @@
+header{
+    background-color: black;
+}
+header h1{
+    color: white;
+}
+
+.menu a{
+    color: #1E90FF;
+    text-decoration: none;
+}
+
+body {
+    background-color: black;
+}
+body h2{
+    color: white;
+}
+body h3{
+    color: white;
+}
+body p{
+    color: #D3D3D3;
+}
+
+main{
+    max-width: 760px;
+    margin: 20px auto;
+}
+
+#aboutUs{
+    text-align: center;
+    padding: 24px;
+    border-style: groove;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+#aboutUs > div{
+    width: 50%;
+}
+#aboutUs > img{
+    width: 50%;
+    height: auto;
+}
+
+#ProductosDestacados{
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
