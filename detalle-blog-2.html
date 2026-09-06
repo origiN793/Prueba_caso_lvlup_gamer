@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El primer bug documentado - Level-Up Gamer</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <div class="barra-anuncio">Envio gratis a todo Chile en compras sobre $50.000</div>
+
+  <header class="encabezado">
+    <div class="contenedor">
+      <div class="logo">LEVEL-UP <span>GAMER</span></div>
+      <button class="boton-menu" id="boton-menu">☰</button>
+      <ul class="menu" id="menu-principal">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <div class="acciones-header">
+        <a href="login.html">Iniciar sesion</a>
+        <a href="registro.html">Registrarse</a>
+        <a href="carrito.html" class="carrito-link">Carrito (<span class="contador-carrito">0</span>)</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <h1 class="titulo-seccion">El primer "bug" documentado de la historia</h1>
+    <img src="images/example_image.jpg" alt="Computadora antigua" style="width:100%; max-width:600px; display:block; margin:20px auto; border-radius:6px;">
+
+    <p>
+      El termino "bug" para referirse a un error informatico se popularizo gracias a un
+      hecho ocurrido en 1947, en la Universidad de Harvard, mientras el equipo de la
+      computadora Mark II realizaba pruebas de funcionamiento.
+    </p>
+
+    <p>
+      Los ingenieros notaron que la maquina presentaba fallas intermitentes y, al
+      revisar uno de sus reles electromecanicos, encontraron una polilla atrapada entre
+      los contactos. El insecto fue retirado y pegado en el registro de mantenimiento
+      con la anotacion "First actual case of bug being found".
+    </p>
+
+    <p>
+      Aunque la palabra "bug" ya se usaba de forma coloquial antes, este episodio ayudo
+      a fijar el termino dentro de la cultura informatica, y hoy es parte fundamental
+      del vocabulario de cualquier persona que trabaje con tecnologia.
+    </p>
+
+    <a href="blogs.html" class="boton boton-secundario">Volver al blog</a>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <p>Level-Up Gamer &copy; <span id="anio-actual"></span> - Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>

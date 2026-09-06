@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuarios - Panel administrador</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <aside class="barra-lateral">
+    <div class="logo">LEVEL-UP <span>GAMER</span></div>
+    <span class="etiqueta-panel">Panel administrador</span>
+    <nav>
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="usuarios.html" class="activo">Usuarios</a></li>
+      </ul>
+    </nav>
+    <a href="../index.html" class="volver">Volver a la tienda</a>
+  </aside>
+
+  <main class="contenido-admin">
+    <div class="encabezado-admin">
+      <h1>Usuarios</h1>
+      <a href="usuario-form.html" class="boton">+ Nuevo usuario</a>
+    </div>
+
+    <div class="panel">
+      <div class="buscador">
+        <input type="text" id="buscador-usuarios" placeholder="Buscar por nombre o correo...">
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>RUN</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Tipo</th>
+            <th>Comuna</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpo-tabla-usuarios"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="../js/productos.js"></script>
+  <script src="../js/regiones.js"></script>
+  <script src="js/admin-datos.js"></script>
+  <script src="js/admin-usuarios.js"></script>
+</body>
+</html>

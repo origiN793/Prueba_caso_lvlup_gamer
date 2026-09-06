@@ -1,86 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level-Up</title>
-    <link rel="stylesheet" href="css/main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Level-Up Gamer - Tienda Online</title>
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <header class="siteHeader">
-        <h1 class="Nombre"> TIENDA LEVEL-UP GAMER</h1>    
-        <nav class="menu">
-            <a href="#">Inicio |</a>
-            <a href="#">Productos |</a>
-            <a href="Nosotros.html">Nosotros |</a>
-            <a href="#">Blog |</a>
-            <a href="#">Contacto |</a>
-        </nav>
-    </header>
 
-    <main>
-        <section id="aboutUs">
-            <div>
-                <h2>TIENDA ONLINE</h2>
-                <p>Level-Up Gamer es una tienda online dedicada a satisfacer las necesidades de los entusiastas de los 
-                videojuegos en Chile. Lanzada hace dos años como respuesta a la creciente demanda durante la 
-                pandemia</p>
-                <button>Ver producto</button>
-            </div>
-            <img src="images/example_image.jpg" width="250" height="150" alt="Example_image">
-        </section>
-        <section id="ProductosDestacados">
-            <article>
-                <img src="images/example_image.jpg" width="200" height="100" alt="Example_image">
-                <h3>PRODUCTO EJEMPLO 1</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <p>$xxx.xxx</p>
-            </article>
-            
-            <article>
-                <img src="images/example_image.jpg" width="200" height="100" alt="Example_image">
-                <h3>PRODUCTO EJEMPLO 2</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <p>$xxx.xxx</p>
-            </article>
-            
-            <article>
-                <img src="images/example_image.jpg" width="200" height="100" alt="Example_image">
-                <h3>PRODUCTO EJEMPLO 3</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <p>$xxx.xxx</p>
-            </article>
-            
-            <article>
-                <img src="images/example_image.jpg" width="200" height="100" alt="Example_image">
-                <h3>PRODUCTO EJEMPLO 4</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <p>$xxx.xxx</p>
-            </article>
-            
-            <article>
-                <img src="images/example_image.jpg" width="200" height="100" alt="Example_image">
-                <h3>PRODUCTO EJEMPLO 5</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <p>$xxx.xxx</p>
-            </article>
-            
-            <article>
-                <img src="images/example_image.jpg" width="200" height="100" alt="Example_image">
-                <h3>PRODUCTO EJEMPLO 6</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <p>$xxx.xxx</p>
-            </article>
-        </section>
-    </main>
-    <footer>
-        <section>
-            <ul>
-                <li>Whatsapp: <em>+99999999999</em></li>
-                <li>example@gmail.com</li>
-                <li>Instagram</li>
-            </ul>
-        </section>
-    </footer>
+  <!-- Barra de anuncio arriba de todo -->
+  <div class="barra-anuncio">Envio gratis a todo Chile en compras sobre $50.000</div>
+
+  <!-- Encabezado con menu de navegacion -->
+  <header class="encabezado">
+    <div class="contenedor">
+      <div class="logo">LEVEL-UP <span>GAMER</span></div>
+
+      <button class="boton-menu" id="boton-menu">☰</button>
+
+      <ul class="menu" id="menu-principal">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+
+      <div class="acciones-header">
+        <a href="login.html">Iniciar sesion</a>
+        <a href="registro.html">Registrarse</a>
+        <a href="carrito.html" class="carrito-link">Carrito (<span class="contador-carrito">0</span>)</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Seccion principal -->
+  <main>
+    <section class="hero">
+      <div class="contenedor">
+        <div class="hero-texto">
+          <h1>Todo lo que necesitas para subir de nivel</h1>
+          <p>
+            Level-Up Gamer es una tienda online dedicada a satisfacer las necesidades de los
+            entusiastas de los videojuegos en Chile. Lanzada hace dos anos como respuesta a la
+            creciente demanda durante la pandemia, ofrecemos consolas, accesorios, computadores
+            y sillas gamer con despacho a todo el pais.
+          </p>
+          <a href="productos.html" class="boton">Ver productos</a>
+        </div>
+        <div class="hero-imagen">
+          <img src="images/example_image.jpg" alt="Producto destacado">
+        </div>
+      </div>
+    </section>
+
+    <div class="contenedor">
+      <h2 class="titulo-seccion">Productos destacados</h2>
+      <div class="lista-productos" id="productos-destacados">
+        <!-- Aqui el archivo mostrar-productos.js dibuja las tarjetas -->
+      </div>
+
+      <h2 class="titulo-seccion">Por que elegirnos</h2>
+      <div class="grid-3">
+        <div class="caja">
+          <h3>Despacho a todo Chile</h3>
+          <p>No tenemos tienda fisica, pero llegamos a cualquier region del pais.</p>
+        </div>
+        <div class="caja">
+          <h3>Comunidad gamer</h3>
+          <p>Programa de fidelizacion para nuestros clientes mas fieles.</p>
+        </div>
+        <div class="caja">
+          <h3>Soporte real</h3>
+          <p>Equipo que responde tus dudas antes y despues de la compra.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Pie de pagina -->
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <p>Level-Up Gamer &copy; <span id="anio-actual"></span> - Todos los derechos reservados.</p>
+      <p>WhatsApp: +56 9 9999 9999 | contacto@levelupgamer.cl</p>
+    </div>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/mostrar-productos.js"></script>
+  <script src="js/menu.js"></script>
 </body>
 </html>

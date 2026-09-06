@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Level-Up Gamer</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <div class="barra-anuncio">Envio gratis a todo Chile en compras sobre $50.000</div>
+
+  <header class="encabezado">
+    <div class="contenedor">
+      <div class="logo">LEVEL-UP <span>GAMER</span></div>
+      <button class="boton-menu" id="boton-menu">☰</button>
+      <ul class="menu" id="menu-principal">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <div class="acciones-header">
+        <a href="login.html">Iniciar sesion</a>
+        <a href="registro.html">Registrarse</a>
+        <a href="carrito.html" class="carrito-link">Carrito (<span class="contador-carrito">0</span>)</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <h1 class="titulo-seccion">Noticias importantes</h1>
+
+    <div class="tarjeta-blog">
+      <img src="images/example_image.jpg" alt="Caso curioso 1">
+      <div class="contenido">
+        <h3>Caso curioso #1: El origen de los "easter eggs"</h3>
+        <p>Sabias que el primer huevo de pascua digital se escondio en un juego de Atari
+        para que su creador pudiera firmar su trabajo en secreto?</p>
+        <a href="detalle-blog-1.html" class="boton boton-secundario">Ver caso</a>
+      </div>
+    </div>
+
+    <div class="tarjeta-blog">
+      <img src="images/example_image.jpg" alt="Caso curioso 2">
+      <div class="contenido">
+        <h3>Caso curioso #2: El primer "bug" documentado</h3>
+        <p>La palabra "bug" para describir un error de software nacio de un insecto real
+        encontrado dentro de una computadora en 1947.</p>
+        <a href="detalle-blog-2.html" class="boton boton-secundario">Ver caso</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <p>Level-Up Gamer &copy; <span id="anio-actual"></span> - Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>
