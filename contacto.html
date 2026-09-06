@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Level-Up Gamer</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <div class="barra-anuncio">Envio gratis a todo Chile en compras sobre $50.000</div>
+
+  <header class="encabezado">
+    <div class="contenedor">
+      <div class="logo">LEVEL-UP <span>GAMER</span></div>
+      <button class="boton-menu" id="boton-menu">☰</button>
+      <ul class="menu" id="menu-principal">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <div class="acciones-header">
+        <a href="login.html">Iniciar sesion</a>
+        <a href="registro.html">Registrarse</a>
+        <a href="carrito.html" class="carrito-link">Carrito (<span class="contador-carrito">0</span>)</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <h1 class="titulo-seccion">Contactanos</h1>
+
+    <div class="tarjeta-formulario">
+      <div class="mensaje-exito" id="mensaje-exito-contacto">Tu mensaje fue enviado correctamente.</div>
+
+      <form id="formulario-contacto">
+        <div class="campo">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" maxlength="100">
+          <span class="mensaje-error"></span>
+        </div>
+
+        <div class="campo">
+          <label for="correo">Correo electronico</label>
+          <input type="email" id="correo" maxlength="100">
+          <span class="mensaje-error"></span>
+        </div>
+
+        <div class="campo">
+          <label for="comentario">Comentario</label>
+          <textarea id="comentario" rows="5" maxlength="500"></textarea>
+          <span class="mensaje-error"></span>
+        </div>
+
+        <button type="submit" class="boton" style="width:100%;">Enviar mensaje</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <p>Level-Up Gamer &copy; <span id="anio-actual"></span> - Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/validaciones.js"></script>
+  <script src="js/menu.js"></script>
+  <script>
+    // Validacion del formulario de contacto
+    var formularioContacto = document.getElementById("formulario-contacto");
+
+    formularioContacto.addEventListener("submit", function (evento) {
+      evento.preventDefault();
+
+      var nombreValido = validarNoVacio("nombre", "El nombre") && validarLargoMaximo("nombre", "El nombre", 100);
+      var correoValido = validarCorreo("correo");
+      var comentarioValido = validarNoVacio("comentario", "El comentario") && validarLargoMaximo("comentario", "El comentario", 500);
+
+      if (nombreValido && correoValido && comentarioValido) {
+        document.getElementById("mensaje-exito-contacto").style.display = "block";
+        formularioContacto.reset();
+      }
+    });
+  </script>
+</body>
+</html>

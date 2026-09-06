@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle de producto - Level-Up Gamer</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <div class="barra-anuncio">Envio gratis a todo Chile en compras sobre $50.000</div>
+
+  <header class="encabezado">
+    <div class="contenedor">
+      <div class="logo">LEVEL-UP <span>GAMER</span></div>
+      <button class="boton-menu" id="boton-menu">☰</button>
+      <ul class="menu" id="menu-principal">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <div class="acciones-header">
+        <a href="login.html">Iniciar sesion</a>
+        <a href="registro.html">Registrarse</a>
+        <a href="carrito.html" class="carrito-link">Carrito (<span class="contador-carrito">0</span>)</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="contenedor" id="detalle-producto">
+    <div class="detalle-producto">
+      <div class="detalle-imagen">
+        <img id="detalle-imagen" src="images/example_image.jpg" alt="Producto">
+      </div>
+
+      <div class="detalle-info">
+        <span class="categoria" id="detalle-categoria">Categoria</span>
+        <h1 id="detalle-nombre">Nombre del producto</h1>
+        <p class="precio-grande" id="detalle-precio">$0</p>
+        <p id="detalle-descripcion">Descripcion del producto.</p>
+        <div id="detalle-stock"></div>
+
+        <div class="selector-cantidad">
+          <button type="button" id="boton-restar">-</button>
+          <input type="number" id="detalle-cantidad" value="1" min="1">
+          <button type="button" id="boton-sumar">+</button>
+        </div>
+
+        <button class="boton" id="boton-agregar-detalle">Anadir al carrito</button>
+      </div>
+    </div>
+
+    <h2 class="titulo-seccion">Productos relacionados</h2>
+    <div class="lista-productos" id="productos-relacionados"></div>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <p>Level-Up Gamer &copy; <span id="anio-actual"></span> - Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/mostrar-productos.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>

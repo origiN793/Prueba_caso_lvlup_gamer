@@ -1,44 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEVEL-UP GAMER</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros - Level-Up Gamer</title>
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <h1 class="Nombre"> TIENDA LEVEL-UP GAMER</h1>
-    <header>    
-        <nav class="menu">
-            <a href="index.html">Inicio</a>
-            <a href="#">Productos</a>
-            <a href="Nosotros.html">Nosotros</a>
-            <a href="#">Blog</a>
-            <a href="#">Contacto</a>
-        </nav>
-    </header>
-   <section>    
-    
-        
-        <p>Level-Up Gamer es una tienda online dedicada a satisfacer las necesidades de los entusiastas de los 
-            videojuegos en Chile. Lanzada hace dos años como respuesta a la creciente demanda durante la 
-            pandemia, Leves-Up Gamer ofrece una amplia gama de productos para gamers, desde consolas y 
-            accesorios hasta computadores y sillas especializadas. Aunque no cuenta con una ubicación física, 
-            realiza despachos a todo el país.
-        </p>
-        
-        <h2>Nuestra mision es:</h2>
-            <p>Proporcionar productos de alta calidad para gamers en todo Chile, ofreciendo una experiencia de 
-                compra única y personalizada, con un enfoque en la satisfacción del cliente y el crecimiento de la 
-                comunidad gamer. 
-            </p>
 
-            <H3>Visión</H3>
-                <P>
-                    Ser la tienda online líder en productos para gamers en Chile, reconocida por su innovación, servicio 
-                    al cliente excepcional, y un programa de fidelización basado en gamificación que recompense a 
-                    nuestros clientes más fieles.
-                </P>
-    </section>
+  <div class="barra-anuncio">Envio gratis a todo Chile en compras sobre $50.000</div>
+
+  <header class="encabezado">
+    <div class="contenedor">
+      <div class="logo">LEVEL-UP <span>GAMER</span></div>
+      <button class="boton-menu" id="boton-menu">☰</button>
+      <ul class="menu" id="menu-principal">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <div class="acciones-header">
+        <a href="login.html">Iniciar sesion</a>
+        <a href="registro.html">Registrarse</a>
+        <a href="carrito.html" class="carrito-link">Carrito (<span class="contador-carrito">0</span>)</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <h1 class="titulo-seccion">Quienes somos</h1>
+    <p>
+      Level-Up Gamer es una tienda online dedicada a satisfacer las necesidades de los
+      entusiastas de los videojuegos en Chile. Lanzada hace dos anos como respuesta a la
+      creciente demanda durante la pandemia, Level-Up Gamer ofrece una amplia gama de
+      productos para gamers, desde consolas y accesorios hasta computadores y sillas
+      especializadas. Aunque no cuenta con una ubicacion fisica, realiza despachos a
+      todo el pais.
+    </p>
+
+    <div class="caja">
+      <h2>Nuestra mision</h2>
+      <p>
+        Proporcionar productos de alta calidad para gamers en todo Chile, ofreciendo una
+        experiencia de compra unica y personalizada, con un enfoque en la satisfaccion del
+        cliente y el crecimiento de la comunidad gamer.
+      </p>
+    </div>
+
+    <div class="caja">
+      <h2>Nuestra vision</h2>
+      <p>
+        Ser la tienda online lider en productos para gamers en Chile, reconocida por su
+        innovacion, servicio al cliente excepcional, y un programa de fidelizacion basado
+        en gamificacion que recompense a nuestros clientes mas fieles.
+      </p>
+    </div>
+
+    <h2 class="titulo-seccion">El equipo</h2>
+    <div class="grid-3">
+      <div class="caja">
+        <h3>Desarrollo</h3>
+        <p>Construye la experiencia web de la tienda.</p>
+      </div>
+      <div class="caja">
+        <h3>Operaciones</h3>
+        <p>Coordina el despacho a todas las regiones del pais.</p>
+      </div>
+      <div class="caja">
+        <h3>Comunidad</h3>
+        <p>Gestiona el programa de fidelizacion y el blog.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <p>Level-Up Gamer &copy; <span id="anio-actual"></span> - Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/menu.js"></script>
 </body>
 </html>

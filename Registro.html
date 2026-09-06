@@ -1,22 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrate</title>
-    <link rel="stylesheet" href="css/registro.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrarse - Level-Up Gamer</title>
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <section class="formu-register">
-        <h4>Registro LVLUP GAMING</h4>
-        <input class="controles" type="text" name="nombres" id="nombres" placeholder="Ingrese Su Nombre">
-        <input class="controles" type="text" name="apellidos" id="apellidos" placeholder="Ingrese Su Apellido">
-        <input class="controles" type="email" name="correo" id="correo" placeholder="Ingrese Su Correo Electronico">
-        <input class="controles" type="password" name="correo" id="correo" placeholder="Ingrese Su Contraseña">
-        <p>Estoy de acuerdo con <a href="#">Terminos y condiciones</a></p>
-        <input class="boton" type="submit" value="Registrar"> 
-        <p><a href="#">¿Ya tengo Cuenta?</a></p>
-    
-    </section>
+
+  <header class="encabezado">
+    <div class="contenedor">
+      <div class="logo">LEVEL-UP <span>GAMER</span></div>
+      <button class="boton-menu" id="boton-menu">☰</button>
+      <ul class="menu" id="menu-principal">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <div class="acciones-header">
+        <a href="carrito.html" class="carrito-link">Carrito (<span class="contador-carrito">0</span>)</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <div class="tarjeta-formulario ancha">
+      <h1>Registro Level-Up Gamer</h1>
+
+      <div class="mensaje-exito" id="mensaje-exito-registro">Cuenta creada correctamente (simulacion).</div>
+
+      <form id="formulario-registro">
+        <div class="fila-doble">
+          <div class="campo">
+            <label for="run">RUN</label>
+            <input type="text" id="run" maxlength="9" placeholder="19011022K">
+            <span class="mensaje-error"></span>
+          </div>
+          <div class="campo">
+            <label for="nombre-registro">Nombre</label>
+            <input type="text" id="nombre-registro" maxlength="50">
+            <span class="mensaje-error"></span>
+          </div>
+        </div>
+
+        <div class="fila-doble">
+          <div class="campo">
+            <label for="apellidos">Apellidos</label>
+            <input type="text" id="apellidos" maxlength="100">
+            <span class="mensaje-error"></span>
+          </div>
+          <div class="campo">
+            <label for="correo-registro">Correo electronico</label>
+            <input type="email" id="correo-registro" maxlength="100">
+            <span class="mensaje-error"></span>
+          </div>
+        </div>
+
+        <div class="fila-doble">
+          <div class="campo">
+            <label for="clave-registro">Contrasena</label>
+            <input type="password" id="clave-registro">
+            <span class="mensaje-error"></span>
+          </div>
+          <div class="campo">
+            <label for="clave-confirmar">Confirmar contrasena</label>
+            <input type="password" id="clave-confirmar">
+            <span class="mensaje-error"></span>
+          </div>
+        </div>
+
+        <div class="fila-doble">
+          <div class="campo">
+            <label for="telefono">Telefono (opcional)</label>
+            <input type="tel" id="telefono" placeholder="+56 9 1234 5678">
+          </div>
+          <div class="campo">
+            <label for="region">Region</label>
+            <select id="region">
+              <option value="">-- Seleccione la region --</option>
+            </select>
+            <span class="mensaje-error"></span>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="comuna">Comuna</label>
+          <select id="comuna">
+            <option value="">-- Seleccione la comuna --</option>
+          </select>
+          <span class="mensaje-error"></span>
+        </div>
+
+        <div class="campo">
+          <label for="direccion">Direccion</label>
+          <input type="text" id="direccion" maxlength="300">
+          <span class="mensaje-error"></span>
+        </div>
+
+        <div class="campo">
+          <label style="font-weight:normal;">
+            <input type="checkbox" id="terminos" style="width:auto;">
+            Estoy de acuerdo con los <a href="#">Terminos y condiciones</a>
+          </label>
+        </div>
+
+        <button type="submit" class="boton" style="width:100%;">Registrar</button>
+      </form>
+
+      <p style="text-align:center; margin-top:15px;">
+        Ya tienes cuenta? <a href="login.html">Inicia sesion aqui</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <p>Level-Up Gamer &copy; <span id="anio-actual"></span> - Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/regiones.js"></script>
+  <script src="js/validaciones.js"></script>
+  <script src="js/menu.js"></script>
+  <script>
+    // Llenamos el select de regiones apenas carga la pagina
+    llenarSelectRegiones("region");
+
+    // Cuando cambia la region, actualizamos las comunas
+    document.getElementById("region").addEventListener("change", function () {
+      actualizarComunas("region", "comuna");
+    });
+
+    var formularioRegistro = document.getElementById("formulario-registro");
+
+    formularioRegistro.addEventListener("submit", function (evento) {
+      evento.preventDefault();
+
+      var runValido = validarRUN("run");
+      var nombreValido = validarNoVacio("nombre-registro", "El nombre") && validarLargoMaximo("nombre-registro", "El nombre", 50);
+      var apellidosValidos = validarNoVacio("apellidos", "El apellido") && validarLargoMaximo("apellidos", "El apellido", 100);
+      var correoValido = validarCorreo("correo-registro");
+      var claveValida = validarPassword("clave-registro");
+      var confirmacionValida = validarConfirmacionPassword("clave-registro", "clave-confirmar");
+      var regionValida = validarNoVacio("region", "La region");
+      var comunaValida = validarNoVacio("comuna", "La comuna");
+      var direccionValida = validarNoVacio("direccion", "La direccion") && validarLargoMaximo("direccion", "La direccion", 300);
+
+      var terminosAceptados = document.getElementById("terminos").checked;
+
+      if (!terminosAceptados) {
+        alert("Debes aceptar los terminos y condiciones para continuar.");
+        return;
+      }
+
+      var todoValido = runValido && nombreValido && apellidosValidos && correoValido &&
+        claveValida && confirmacionValida && regionValida && comunaValida && direccionValida;
+
+      if (todoValido) {
+        document.getElementById("mensaje-exito-registro").style.display = "block";
+        setTimeout(function () {
+          window.location.href = "login.html";
+        }, 1200);
+      }
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producto - Panel administrador</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <aside class="barra-lateral">
+    <div class="logo">LEVEL-UP <span>GAMER</span></div>
+    <span class="etiqueta-panel">Panel administrador</span>
+    <nav>
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="productos.html" class="activo">Productos</a></li>
+        <li><a href="usuarios.html">Usuarios</a></li>
+      </ul>
+    </nav>
+    <a href="../index.html" class="volver">Volver a la tienda</a>
+  </aside>
+
+  <main class="contenido-admin">
+    <div class="encabezado-admin">
+      <h1 id="titulo-formulario">Nuevo producto</h1>
+      <a href="productos.html" class="boton boton-secundario">Volver al listado</a>
+    </div>
+
+    <div class="panel" style="max-width:650px;">
+      <form id="formulario-producto">
+        <div class="fila-doble">
+          <div class="campo">
+            <label for="campo-codigo">Codigo producto</label>
+            <input type="text" id="campo-codigo">
+            <span class="mensaje-error"></span>
+          </div>
+          <div class="campo">
+            <label for="campo-nombre">Nombre</label>
+            <input type="text" id="campo-nombre" maxlength="100">
+            <span class="mensaje-error"></span>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="campo-descripcion">Descripcion (opcional)</label>
+          <textarea id="campo-descripcion" rows="3" maxlength="500"></textarea>
+        </div>
+
+        <div class="fila-doble">
+          <div class="campo">
+            <label for="campo-precio">Precio</label>
+            <input type="number" id="campo-precio" min="0">
+            <span class="mensaje-error"></span>
+          </div>
+          <div class="campo">
+            <label for="campo-stock">Stock</label>
+            <input type="number" id="campo-stock" min="0">
+            <span class="mensaje-error"></span>
+          </div>
+        </div>
+
+        <div class="fila-doble">
+          <div class="campo">
+            <label for="campo-stock-critico">Stock critico (opcional)</label>
+            <input type="number" id="campo-stock-critico" min="0" value="0">
+          </div>
+          <div class="campo">
+            <label for="campo-categoria">Categoria</label>
+            <select id="campo-categoria">
+              <option value="">-- Seleccione --</option>
+            </select>
+            <span class="mensaje-error"></span>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="campo-imagen">Imagen (opcional)</label>
+          <input type="text" id="campo-imagen" placeholder="../images/example_image.jpg">
+        </div>
+
+        <button type="submit" class="boton">Guardar producto</button>
+        <a href="productos.html" class="boton boton-secundario">Cancelar</a>
+      </form>
+    </div>
+  </main>
+
+  <script src="../js/productos.js"></script>
+  <script src="../js/validaciones.js"></script>
+  <script src="js/admin-datos.js"></script>
+  <script src="js/admin-productos.js"></script>
+</body>
+</html>

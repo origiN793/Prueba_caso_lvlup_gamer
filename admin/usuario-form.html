@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuario - Panel administrador</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <aside class="barra-lateral">
+    <div class="logo">LEVEL-UP <span>GAMER</span></div>
+    <span class="etiqueta-panel">Panel administrador</span>
+    <nav>
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="usuarios.html" class="activo">Usuarios</a></li>
+      </ul>
+    </nav>
+    <a href="../index.html" class="volver">Volver a la tienda</a>
+  </aside>
+
+  <main class="contenido-admin">
+    <div class="encabezado-admin">
+      <h1 id="titulo-formulario">Nuevo usuario</h1>
+      <a href="usuarios.html" class="boton boton-secundario">Volver al listado</a>
+    </div>
+
+    <div class="panel" style="max-width:700px;">
+      <form id="formulario-usuario">
+        <div class="fila-doble">
+          <div class="campo">
+            <label for="campo-run">RUN</label>
+            <input type="text" id="campo-run" maxlength="9" placeholder="19011022K">
+            <span class="mensaje-error"></span>
+          </div>
+          <div class="campo">
+            <label for="campo-nombre-usuario">Nombre</label>
+            <input type="text" id="campo-nombre-usuario" maxlength="50">
+            <span class="mensaje-error"></span>
+          </div>
+        </div>
+
+        <div class="fila-doble">
+          <div class="campo">
+            <label for="campo-apellidos-usuario">Apellidos</label>
+            <input type="text" id="campo-apellidos-usuario" maxlength="100">
+            <span class="mensaje-error"></span>
+          </div>
+          <div class="campo">
+            <label for="campo-correo-usuario">Correo electronico</label>
+            <input type="email" id="campo-correo-usuario" maxlength="100">
+            <span class="mensaje-error"></span>
+          </div>
+        </div>
+
+        <div class="fila-doble">
+          <div class="campo">
+            <label for="campo-tipo">Tipo de usuario</label>
+            <select id="campo-tipo">
+              <option value="">-- Seleccione --</option>
+            </select>
+            <span class="mensaje-error"></span>
+          </div>
+          <div class="campo">
+            <label for="campo-region">Region</label>
+            <select id="campo-region">
+              <option value="">-- Seleccione la region --</option>
+            </select>
+            <span class="mensaje-error"></span>
+          </div>
+        </div>
+
+        <div class="fila-doble">
+          <div class="campo">
+            <label for="campo-comuna">Comuna</label>
+            <select id="campo-comuna">
+              <option value="">-- Seleccione la comuna --</option>
+            </select>
+            <span class="mensaje-error"></span>
+          </div>
+          <div class="campo">
+            <label for="campo-direccion-usuario">Direccion</label>
+            <input type="text" id="campo-direccion-usuario" maxlength="300">
+            <span class="mensaje-error"></span>
+          </div>
+        </div>
+
+        <button type="submit" class="boton">Guardar usuario</button>
+        <a href="usuarios.html" class="boton boton-secundario">Cancelar</a>
+      </form>
+    </div>
+  </main>
+
+  <script src="../js/productos.js"></script>
+  <script src="../js/regiones.js"></script>
+  <script src="../js/validaciones.js"></script>
+  <script src="js/admin-datos.js"></script>
+  <script src="js/admin-usuarios.js"></script>
+</body>
+</html>

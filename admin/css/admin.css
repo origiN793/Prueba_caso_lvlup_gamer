@@ -1,0 +1,290 @@
+/* =========================================
+   admin.css
+   Estilos del panel administrador: un menu
+   lateral fijo y el contenido a la derecha.
+   ========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #111111;
+  color: #dddddd;
+  display: flex;
+  min-height: 100vh;
+}
+
+a {
+  color: #4da6ff;
+}
+
+/* ---------- Menu lateral ---------- */
+.barra-lateral {
+  width: 220px;
+  background-color: #000000;
+  padding: 20px;
+  border-right: 2px solid #333333;
+}
+
+.barra-lateral .logo {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.barra-lateral .logo span {
+  color: #4da6ff;
+}
+
+.barra-lateral .etiqueta-panel {
+  font-size: 12px;
+  color: #4da6ff;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.barra-lateral nav ul {
+  list-style: none;
+}
+
+.barra-lateral nav li {
+  margin-bottom: 8px;
+}
+
+.barra-lateral nav a {
+  display: block;
+  color: #dddddd;
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 4px;
+}
+
+.barra-lateral nav a:hover {
+  background-color: #1a1a1a;
+}
+
+.barra-lateral nav a.activo {
+  background-color: #1a1a1a;
+  color: #4da6ff;
+  font-weight: bold;
+}
+
+.barra-lateral .volver {
+  margin-top: 30px;
+  display: block;
+  font-size: 14px;
+}
+
+/* ---------- Contenido principal ---------- */
+.contenido-admin {
+  flex: 1;
+  padding: 30px;
+}
+
+.encabezado-admin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.encabezado-admin h1 {
+  color: #ffffff;
+}
+
+.boton {
+  display: inline-block;
+  background-color: #4da6ff;
+  color: #000000;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.boton:hover {
+  background-color: #2a8ae6;
+}
+
+.boton-secundario {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+/* Tarjetas de estadisticas */
+.tarjetas-estadisticas {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.tarjeta-estadistica {
+  background-color: #1a1a1a;
+  border: 1px solid #333333;
+  border-radius: 6px;
+  padding: 15px 20px;
+  flex: 1;
+  min-width: 160px;
+}
+
+.tarjeta-estadistica .etiqueta {
+  font-size: 12px;
+  color: #999999;
+  text-transform: uppercase;
+}
+
+.tarjeta-estadistica .valor {
+  font-size: 26px;
+  color: #ffffff;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* Panel contenedor generico */
+.panel {
+  background-color: #1a1a1a;
+  border: 1px solid #333333;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+/* Buscador arriba de las tablas */
+.buscador {
+  margin-bottom: 15px;
+}
+
+.buscador input {
+  padding: 8px;
+  width: 100%;
+  max-width: 300px;
+  background-color: #111111;
+  border: 1px solid #333333;
+  color: #ffffff;
+  border-radius: 4px;
+}
+
+/* Tabla de datos */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th {
+  text-align: left;
+  padding: 10px;
+  color: #999999;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #333333;
+}
+
+table td {
+  padding: 10px;
+  border-bottom: 1px solid #333333;
+}
+
+table img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.acciones-tabla a,
+.acciones-tabla button {
+  background: none;
+  border: none;
+  color: #4da6ff;
+  cursor: pointer;
+  font-size: 13px;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.acciones-tabla button.eliminar {
+  color: #ff6b6b;
+}
+
+.aviso-stock {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 8px;
+  background-color: #4d2323;
+  color: #ff8080;
+}
+
+/* Formularios del admin */
+.campo {
+  margin-bottom: 16px;
+}
+
+.campo label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  padding: 10px;
+  background-color: #111111;
+  border: 1px solid #444444;
+  color: #ffffff;
+  border-radius: 4px;
+}
+
+.mensaje-error {
+  color: #ff6b6b;
+  font-size: 13px;
+  margin-top: 4px;
+  display: none;
+}
+
+.campo.error input,
+.campo.error select,
+.campo.error textarea {
+  border-color: #ff6b6b;
+}
+
+.campo.error .mensaje-error {
+  display: block;
+}
+
+.fila-doble {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.fila-doble .campo {
+  flex: 1;
+  min-width: 200px;
+}
+
+@media (max-width: 700px) {
+  body {
+    flex-direction: column;
+  }
+  .barra-lateral {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid #333333;
+  }
+}

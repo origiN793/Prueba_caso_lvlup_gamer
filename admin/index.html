@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel administrador - Level-Up Gamer</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <aside class="barra-lateral">
+    <div class="logo">LEVEL-UP <span>GAMER</span></div>
+    <span class="etiqueta-panel">Panel administrador</span>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="activo">Dashboard</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="usuarios.html">Usuarios</a></li>
+      </ul>
+    </nav>
+    <a href="../index.html" class="volver">Volver a la tienda</a>
+  </aside>
+
+  <main class="contenido-admin">
+    <div class="encabezado-admin">
+      <h1>Hola, Administrador</h1>
+      <a href="../index.html" class="boton boton-secundario">Ver tienda</a>
+    </div>
+
+    <div class="tarjetas-estadisticas">
+      <div class="tarjeta-estadistica">
+        <div class="etiqueta">Productos activos</div>
+        <div class="valor" id="estadistica-productos">0</div>
+      </div>
+      <div class="tarjeta-estadistica">
+        <div class="etiqueta">Stock critico</div>
+        <div class="valor" id="estadistica-critico">0</div>
+      </div>
+      <div class="tarjeta-estadistica">
+        <div class="etiqueta">Usuarios registrados</div>
+        <div class="valor" id="estadistica-usuarios">0</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Bienvenida</h3>
+      <p>Desde aqui puedes gestionar el catalogo de productos y las cuentas de usuario.
+      Los cambios se guardan en tu navegador (localStorage) para esta entrega.</p>
+      <br>
+      <a href="producto-form.html" class="boton">+ Nuevo producto</a>
+      <a href="usuario-form.html" class="boton boton-secundario">+ Nuevo usuario</a>
+    </div>
+  </main>
+
+  <script src="../js/productos.js"></script>
+  <script src="js/admin-datos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var listaProductos = obtenerProductosAdmin();
+      var listaUsuarios = obtenerUsuariosAdmin();
+
+      var productosCriticos = 0;
+      for (var i = 0; i < listaProductos.length; i++) {
+        if (listaProductos[i].stock <= listaProductos[i].stockCritico) {
+          productosCriticos++;
+        }
+      }
+
+      document.getElementById("estadistica-productos").textContent = listaProductos.length;
+      document.getElementById("estadistica-critico").textContent = productosCriticos;
+      document.getElementById("estadistica-usuarios").textContent = listaUsuarios.length;
+    });
+  </script>
+</body>
+</html>

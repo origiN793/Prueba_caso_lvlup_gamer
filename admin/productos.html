@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos - Panel administrador</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <aside class="barra-lateral">
+    <div class="logo">LEVEL-UP <span>GAMER</span></div>
+    <span class="etiqueta-panel">Panel administrador</span>
+    <nav>
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="productos.html" class="activo">Productos</a></li>
+        <li><a href="usuarios.html">Usuarios</a></li>
+      </ul>
+    </nav>
+    <a href="../index.html" class="volver">Volver a la tienda</a>
+  </aside>
+
+  <main class="contenido-admin">
+    <div class="encabezado-admin">
+      <h1>Productos</h1>
+      <a href="producto-form.html" class="boton">+ Nuevo producto</a>
+    </div>
+
+    <div class="panel">
+      <div class="buscador">
+        <input type="text" id="buscador-productos" placeholder="Buscar por nombre o codigo...">
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Imagen</th>
+            <th>Codigo</th>
+            <th>Nombre</th>
+            <th>Categoria</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpo-tabla-productos"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="../js/productos.js"></script>
+  <script src="js/admin-datos.js"></script>
+  <script src="js/admin-productos.js"></script>
+</body>
+</html>

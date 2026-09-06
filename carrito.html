@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi carrito - Level-Up Gamer</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <div class="barra-anuncio">Envio gratis a todo Chile en compras sobre $50.000</div>
+
+  <header class="encabezado">
+    <div class="contenedor">
+      <div class="logo">LEVEL-UP <span>GAMER</span></div>
+      <button class="boton-menu" id="boton-menu">☰</button>
+      <ul class="menu" id="menu-principal">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <div class="acciones-header">
+        <a href="login.html">Iniciar sesion</a>
+        <a href="registro.html">Registrarse</a>
+        <a href="carrito.html" class="carrito-link">Carrito (<span class="contador-carrito">0</span>)</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <h1 class="titulo-seccion">Mi carrito de compras</h1>
+
+    <p id="carrito-vacio" style="display:none; text-align:center;">
+      Tu carrito esta vacio. <a href="productos.html">Ve a ver los productos</a>.
+    </p>
+
+    <div id="lista-carrito"></div>
+
+    <button class="boton boton-secundario" id="boton-vaciar-carrito">Vaciar carrito</button>
+
+    <div class="resumen-carrito">
+      <div class="linea">
+        <span>Subtotal</span>
+        <span id="total-carrito">$0</span>
+      </div>
+      <div class="linea total">
+        <span>Total</span>
+        <span id="total-carrito-2">Se calcula al pagar</span>
+      </div>
+      <button class="boton" style="width:100%; margin-top:10px;" onclick="alert('Esta funcion de pago se implementara en la proxima entrega.')">Pagar</button>
+    </div>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <p>Level-Up Gamer &copy; <span id="anio-actual"></span> - Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/mostrar-carrito.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>
