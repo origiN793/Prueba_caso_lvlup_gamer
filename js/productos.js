@@ -15,7 +15,7 @@ var productos = [
     stock: 12,
     stockCritico: 3,
     categoria: "Juegos de Mesa",
-    imagen: "images/example_image.jpg"
+    imagen: "images/catan.jpg"
   },
   {
     codigo: "JM002",
@@ -25,7 +25,7 @@ var productos = [
     stock: 8,
     stockCritico: 2,
     categoria: "Juegos de Mesa",
-    imagen: "images/example_image.jpg"
+    imagen: "images/Carcassonne.jpg"
   },
   {
     codigo: "AC001",
@@ -35,7 +35,7 @@ var productos = [
     stock: 15,
     stockCritico: 4,
     categoria: "Accesorios",
-    imagen: "images/example_image.jpg"
+    imagen: "images/control_Xbox.jpg"
   },
   {
     codigo: "AC002",
@@ -45,7 +45,7 @@ var productos = [
     stock: 6,
     stockCritico: 2,
     categoria: "Accesorios",
-    imagen: "images/example_image.jpg"
+    imagen: "images/Audifonos_Gamer_HyperX.jpg"
   },
   {
     codigo: "CO001",
@@ -55,7 +55,7 @@ var productos = [
     stock: 4,
     stockCritico: 2,
     categoria: "Consolas",
-    imagen: "images/example_image.jpg"
+    imagen: "images/PlayStation_5.jpg"
   },
   {
     codigo: "CO002",
@@ -65,7 +65,7 @@ var productos = [
     stock: 7,
     stockCritico: 2,
     categoria: "Consolas",
-    imagen: "images/example_image.jpg"
+    imagen: "images/Nintendo_Switch_OLED.jpg"
   },
   {
     codigo: "CG001",
@@ -75,7 +75,7 @@ var productos = [
     stock: 3,
     stockCritico: 1,
     categoria: "Computadores",
-    imagen: "images/example_image.jpg"
+    imagen: "images/Notebook_Gamer_ASUS_TUF.jpg"
   },
   {
     codigo: "SG001",
@@ -85,7 +85,7 @@ var productos = [
     stock: 5,
     stockCritico: 2,
     categoria: "Sillas Gamers",
-    imagen: "images/example_image.jpg"
+    imagen: "images/Silla_Gamer.jpg"
   },
   {
     codigo: "MS001",
@@ -95,7 +95,7 @@ var productos = [
     stock: 20,
     stockCritico: 5,
     categoria: "Accesorios",
-    imagen: "images/example_image.jpg"
+    imagen: "images/Mouse_Gamer_Logitech_G502.jpg"
   },
   {
     codigo: "MO001",
@@ -105,7 +105,7 @@ var productos = [
     stock: 6,
     stockCritico: 2,
     categoria: "Monitores",
-    imagen: "images/example_image.jpg"
+    imagen: "images/Monitor_Gamer_LG_27_pulgadas.jpg"
   },
   {
     codigo: "PP001",
@@ -115,7 +115,7 @@ var productos = [
     stock: 0,
     stockCritico: 3,
     categoria: "Accesorios",
-    imagen: "images/example_image.jpg"
+    imagen: "images/Alfombrilla_XL_RGB.jpg"
   },
   {
     codigo: "PC001",
@@ -125,7 +125,7 @@ var productos = [
     stock: 25,
     stockCritico: 5,
     categoria: "Poleras Personalizadas",
-    imagen: "images/example_image.jpg"
+    imagen: "images/Polera_Gamer_Level-Up.jpg"
   }
 ];
 
