@@ -1,8 +1,6 @@
-import { Navbar, Nav, Container, Button } from 'react-bootstrap'
+import { Navbar, Nav, Container, Button, Badge } from 'react-bootstrap'
 
-// Barra de navegación con componentes de React Bootstrap.
-// Cada <Navbar.Brand>, <Nav.Link>, etc. genera el HTML y las clases de Bootstrap.
-function Encabezado() {
+function Encabezado({ cantidad, onVerCarrito }) {
   return (
     <>
       <div className="barra-anuncio text-center py-1">
@@ -16,7 +14,6 @@ function Encabezado() {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="menu-principal" />
           <Navbar.Collapse id="menu-principal">
-            {/* En Bootstrap 5 es "me-auto", ya no "mr-auto" */}
             <Nav className="me-auto">
               <Nav.Link href="#inicio">Inicio</Nav.Link>
               <Nav.Link href="#catalogo">Productos</Nav.Link>
@@ -28,8 +25,8 @@ function Encabezado() {
               <Nav.Link href="#login">Iniciar sesión</Nav.Link>
               <Nav.Link href="#registro">Registrarse</Nav.Link>
             </Nav>
-            <Button variant="outline-light" className="ms-md-2">
-              🛒 Carrito
+            <Button variant="outline-light" className="ms-md-2" onClick={onVerCarrito}>
+              🛒 Carrito <Badge bg="success">{cantidad}</Badge>
             </Button>
           </Navbar.Collapse>
         </Container>
