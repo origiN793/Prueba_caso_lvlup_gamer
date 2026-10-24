@@ -1,0 +1,20 @@
+/* Estilos propios: lo mínimo, el resto lo pone Bootstrap. */
+body {
+  background-color: #f5f7fb;
+}
+
+.barra-anuncio {
+  background-color: #198754;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.portada {
+  background: linear-gradient(135deg, #111827, #1f3c88);
+  color: #fff;
+}
+
+.imagen-producto {
+  height: 200px;
+  object-fit: cover;
+}
