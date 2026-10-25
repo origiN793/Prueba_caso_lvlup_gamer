@@ -9,6 +9,8 @@ import Nosotros from './paginas/Nosotros.jsx'
 import Blog from './paginas/Blog.jsx'
 import DetalleBlog from './paginas/DetalleBlog.jsx'
 import Contacto from './paginas/Contacto.jsx'
+import Login from './paginas/Login.jsx'
+import Registro from './paginas/Registro.jsx'
 import NoEncontrada from './paginas/NoEncontrada.jsx'
 
 const CLAVE_CARRITO = 'carrito-levelup'
@@ -73,6 +75,8 @@ function App() {
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:id" element={<DetalleBlog />} />
           <Route path="contacto" element={<Contacto />} />
+          <Route path="login" element={<Login />}></Route>   
+          <Route path="registro" element={<Registro />}></Route>
           {/* Comodín: atrapa cualquier dirección que no coincida con las anteriores */}
           <Route path="*" element={<NoEncontrada />} />
         </Route>
