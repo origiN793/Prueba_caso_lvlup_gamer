@@ -1,51 +1,42 @@
 import { useState, useEffect } from 'react'
-import { Container } from 'react-bootstrap'
+import { Routes, Route } from 'react-router'
 
-import Encabezado from './components/Encabezado.jsx'
-import Portada from './components/Portada.jsx'
-import Buscador from './components/Buscador.jsx'
-import Catalogo from './components/Catalogo.jsx'
-import Carrito from './components/Carrito.jsx'
-import PiePagina from './components/PiePagina.jsx'
-import productos from './data/productos.js'
+import Layout from './componentes/Layout.jsx'
+import Carrito from './componentes/Carrito.jsx'
+import Inicio from './paginas/Inicio.jsx'
+import Productos from './paginas/Productos.jsx'
+import Nosotros from './paginas/Nosotros.jsx'
+import Blog from './paginas/Blog.jsx'
+import DetalleBlog from './paginas/DetalleBlog.jsx'
+import Contacto from './paginas/Contacto.jsx'
+import NoEncontrada from './paginas/NoEncontrada.jsx'
 
 const CLAVE_CARRITO = 'carrito-levelup'
 
-// Lee el carrito guardado en el navegador (si existe).
+// Lee el carrito guardado. Si está corrupto, parte vacío en vez de caerse.
 function cargarCarritoGuardado() {
-  const guardado = localStorage.getItem(CLAVE_CARRITO)
-  return guardado ? JSON.parse(guardado) : []
+  try {
+    const guardado = localStorage.getItem(CLAVE_CARRITO)
+    return guardado ? JSON.parse(guardado) : []
+  } catch {
+    return []
+  }
 }
 
 function App() {
-  // ---------- ESTADO ----------
-  // Pasamos una FUNCIÓN a useState: así localStorage se lee solo la primera vez.
   const [carrito, setCarrito] = useState(cargarCarritoGuardado)
   const [mostrarCarrito, setMostrarCarrito] = useState(false)
-  const [texto, setTexto] = useState('')
-  const [categoria, setCategoria] = useState('Todas')
 
-  // ---------- EFECTOS ----------
-  // Se ejecuta después de cada render en que "carrito" haya cambiado.
   useEffect(() => {
     localStorage.setItem(CLAVE_CARRITO, JSON.stringify(carrito))
   }, [carrito])
 
-  // ---------- DATOS DERIVADOS (se calculan, no se guardan) ----------
   const cantidadTotal = carrito.reduce((suma, item) => suma + item.cantidad, 0)
-  const categorias = [...new Set(productos.map((p) => p.categoria))]
-  const productosFiltrados = productos.filter((p) => {
-    const coincideTexto = p.nombre.toLowerCase().includes(texto.toLowerCase())
-    const coincideCategoria = categoria === 'Todas' || p.categoria === categoria
-    return coincideTexto && coincideCategoria
-  })
 
-  // Actualiza el título de la pestaña del navegador (otro efecto).
   useEffect(() => {
     document.title = `(${cantidadTotal}) Level-Up Gamer`
   }, [cantidadTotal])
 
-  // ---------- FUNCIONES QUE CAMBIAN EL ESTADO ----------
   function agregarAlCarrito(producto) {
     setCarrito((carritoActual) => {
       const existe = carritoActual.find((item) => item.codigo === producto.codigo)
@@ -68,20 +59,24 @@ function App() {
 
   return (
     <>
-      <Encabezado cantidad={cantidadTotal} onVerCarrito={() => setMostrarCarrito(true)} />
-      <Portada />
-
-      <Container as="main" id="catalogo">
-        <h2 className="mb-3">Productos</h2>
-        <Buscador
-          texto={texto}
-          onCambiarTexto={setTexto}
-          categoria={categoria}
-          onCambiarCategoria={setCategoria}
-          categorias={categorias}
-        />
-        <Catalogo productos={productosFiltrados} onAgregar={agregarAlCarrito} />
-      </Container>
+      <Routes>
+        {/* Ruta padre: dibuja el marco. Las hijas entran en el <Outlet /> */}
+        <Route
+          path="/"
+          element={
+            <Layout cantidad={cantidadTotal} onVerCarrito={() => setMostrarCarrito(true)} />
+          }
+        >
+          <Route index element={<Inicio onAgregar={agregarAlCarrito} />} />
+          <Route path="productos" element={<Productos onAgregar={agregarAlCarrito} />} />
+          <Route path="nosotros" element={<Nosotros />} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="blog/:id" element={<DetalleBlog />} />
+          <Route path="contacto" element={<Contacto />} />
+          {/* Comodín: atrapa cualquier dirección que no coincida con las anteriores */}
+          <Route path="*" element={<NoEncontrada />} />
+        </Route>
+      </Routes>
 
       <Carrito
         mostrar={mostrarCarrito}
@@ -90,8 +85,6 @@ function App() {
         onQuitar={quitarDelCarrito}
         onVaciar={() => setCarrito([])}
       />
-
-      <PiePagina />
     </>
   )
 }
