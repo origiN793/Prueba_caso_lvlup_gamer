@@ -1,4 +1,5 @@
 import { Container, Row, Col, Button } from 'react-bootstrap'
+import { Link } from 'react-router'
 
 function Portada() {
   return (
@@ -15,7 +16,7 @@ function Portada() {
               Ofrecemos consolas, accesorios, computadores y sillas gamer con
               despacho a todo el país.
             </p>
-            <Button variant="success" href="#catalogo">
+            <Button as={Link} to="/productos" variant="success">
               Ver productos
             </Button>
           </Col>
