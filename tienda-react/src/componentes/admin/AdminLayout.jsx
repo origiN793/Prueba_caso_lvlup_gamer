@@ -12,7 +12,7 @@ function AdminLayout() {
 
                 <Nav variant="pills" className="flex-column">
                     <Nav.Link as={NavLink} to="/admin" end>Dashboard</Nav.Link>
-                    <Nav.Link as={NavLink} to="/admin/productos">Prodcutos</Nav.Link>
+                    <Nav.Link as={NavLink} to="/admin/productos">Productos</Nav.Link>
                     <Nav.Link as={NavLink} to="/admin/usuarios">Usuarios</Nav.Link>
                 </Nav>
 

@@ -53,3 +53,10 @@ body {
   background-color: #198754;
   color: #fff;
 }
+
+.miniatura-producto {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  background-color: #fff;
+}

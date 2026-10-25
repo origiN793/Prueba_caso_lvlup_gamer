@@ -5,6 +5,8 @@ import { Routes, Route } from 'react-router'
 import Layout from './componentes/Layout.jsx'
 import AdminLayout from './componentes/admin/AdminLayout.jsx'
 import Dashboard from './paginas/admin/Dashboard.jsx'
+import ProductosAdmin from './paginas/admin/ProductosAdmin.jsx'
+import FormularioProducto from './paginas/admin/FormularioProducto.jsx'
 import Carrito from './componentes/Carrito.jsx'
 import Inicio from './paginas/Inicio.jsx'
 import Productos from './paginas/Productos.jsx'
@@ -86,6 +88,9 @@ function App() {
         {/* ---------- Panel de administración: tiene su propio layout ---------- */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
+          <Route path="productos" element={<ProductosAdmin />} />
+          <Route path="productos/nuevo" element={<FormularioProducto />} />
+          <Route path="productos/editar/:id" element={<FormularioProducto />} />
         </Route>
       </Routes>
 

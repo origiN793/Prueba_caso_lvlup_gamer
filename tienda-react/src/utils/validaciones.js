@@ -76,3 +76,13 @@ export function validarRUN(valor) {
 export function validarSeleccion(valor, texto) {
   return valor === '' ? `Debes seleccionar ${texto}.` : ''
 }
+
+// Número obligatorio que no puede ser menor a un mínimo
+export function validarNumeroMinimo(valor, etiqueta, minimo) {
+  if (valor === '') return `${etiqueta} es obligatorio.`
+  const numero = Number(valor)
+  if (isNaN(numero) || numero < minimo) {
+    return `${etiqueta} no puede ser menor a ${minimo}.`
+  }
+  return ''
+}
