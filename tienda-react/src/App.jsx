@@ -6,6 +6,9 @@ import Carrito from './componentes/Carrito.jsx'
 import Inicio from './paginas/Inicio.jsx'
 import Productos from './paginas/Productos.jsx'
 import Nosotros from './paginas/Nosotros.jsx'
+import Blog from './paginas/Blog.jsx'
+import DetalleBlog from './paginas/DetalleBlog.jsx'
+import Contacto from './paginas/Contacto.jsx'
 import NoEncontrada from './paginas/NoEncontrada.jsx'
 
 const CLAVE_CARRITO = 'carrito-levelup'
@@ -67,6 +70,9 @@ function App() {
           <Route index element={<Inicio onAgregar={agregarAlCarrito} />} />
           <Route path="productos" element={<Productos onAgregar={agregarAlCarrito} />} />
           <Route path="nosotros" element={<Nosotros />} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="blog/:id" element={<DetalleBlog />} />
+          <Route path="contacto" element={<Contacto />} />
           {/* Comodín: atrapa cualquier dirección que no coincida con las anteriores */}
           <Route path="*" element={<NoEncontrada />} />
         </Route>

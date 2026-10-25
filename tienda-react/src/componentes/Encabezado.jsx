@@ -24,6 +24,8 @@ function Encabezado({ cantidad, onVerCarrito }) {
               <Nav.Link as={NavLink} to="/" end onClick={cerrar} >Inicio</Nav.Link>
               <Nav.Link as={NavLink} to="/productos" onClick={cerrar} >Productos</Nav.Link>
               <Nav.Link as={NavLink} to="/nosotros" onClick={cerrar} >Nosotros</Nav.Link>
+              <Nav.Link as={NavLink} to="/blog" onClick={cerrar}>Blog</Nav.Link>
+              <Nav.Link as={NavLink} to="/contacto" onClick={cerrar}>Contacto</Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link as={NavLink} to="/login" onClick={cerrar}>Iniciar sesión</Nav.Link>
