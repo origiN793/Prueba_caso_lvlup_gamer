@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router'
 
+
 import Layout from './componentes/Layout.jsx'
+import AdminLayout from './componentes/admin/AdminLayout.jsx'
+import Dashboard from './paginas/admin/Dashboard.jsx'
 import Carrito from './componentes/Carrito.jsx'
 import Inicio from './paginas/Inicio.jsx'
 import Productos from './paginas/Productos.jsx'
@@ -79,6 +82,10 @@ function App() {
           <Route path="registro" element={<Registro />}></Route>
           {/* Comodín: atrapa cualquier dirección que no coincida con las anteriores */}
           <Route path="*" element={<NoEncontrada />} />
+        </Route>
+        {/* ---------- Panel de administración: tiene su propio layout ---------- */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<Dashboard />} />
         </Route>
       </Routes>
 

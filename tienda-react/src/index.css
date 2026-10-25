@@ -33,3 +33,23 @@ body {
 .imagen-articulo {
   max-width: 600px;
 }
+
+.barra-admin {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .barra-admin {
+    width: 240px;
+    flex-shrink: 0;
+  }
+}
+
+.barra-admin .nav-link {
+  color:  #cbd5e1;
+}
+
+.barra-admin .nav-link.active {
+  background-color: #198754;
+  color: #fff;
+}
