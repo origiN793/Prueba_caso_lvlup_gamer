@@ -31,7 +31,7 @@ function Encabezado({ cantidad, onVerCarrito }) {
               <Nav.Link as={NavLink} to="/login" onClick={cerrar}>Iniciar sesión</Nav.Link>
               <Nav.Link as={NavLink} to="/registro" onClick={cerrar}>Registrarse</Nav.Link>
             </Nav>
-            <Button variant="outline-light" className="ms-lg-2" onClick={() => { cerrar(); onVerCarrito}}>
+            <Button variant="outline-light" className="ms-lg-2" onClick={() => { cerrar(); onVerCarrito() }}>
               🛒 Carrito <Badge bg="success">{cantidad}</Badge>
             </Button>
           </Navbar.Collapse>
