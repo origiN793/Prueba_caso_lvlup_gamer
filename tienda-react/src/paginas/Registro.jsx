@@ -1,7 +1,10 @@
+
+
 import { useState } from 'react'
 import { Container, Card, Form, Button, Alert, Row, Col } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router'
 import regiones from '../data/regiones.js'
+import { guardarUsuario, obtenerUsuarios } from '../data/adminDatos.js'
 import {
   validarTexto,
   validarRUN,
@@ -55,11 +58,19 @@ function Registro() {
   function enviar(evento) {
     evento.preventDefault()
 
+    // Revisamos que el RUN y el correo no estén ya registrados
+    const usuarios = obtenerUsuarios()
+    const runIngresado = valores.run.trim().toUpperCase()
+    const runRepetido = usuarios.some((u) => u.run === runIngresado)
+    const correoRepetido = usuarios.some(
+      (u) => u.correo.toLowerCase() === valores.correo.trim().toLowerCase(),
+    )
+
     const nuevosErrores = {
-      run: validarRUN(valores.run),
+      run: runRepetido ? 'Ya existe un usuario registrado con ese RUN.' : validarRUN(valores.run),
       nombre: validarTexto(valores.nombre, 'El nombre', 50),
       apellidos: validarTexto(valores.apellidos, 'El apellido', 100),
-      correo: validarCorreo(valores.correo),
+      correo: correoRepetido ? 'Ya existe una cuenta con ese correo.' : validarCorreo(valores.correo),
       clave: validarPassword(valores.clave),
       confirmar: validarConfirmacion(valores.clave, valores.confirmar),
       region: validarSeleccion(valores.region, 'una región'),
@@ -72,6 +83,18 @@ function Registro() {
     setErrores(nuevosErrores)
 
     if (Object.values(nuevosErrores).every((mensaje) => mensaje === '')) {
+      // Se guarda con la misma función que usa el admin: aparecerá en su lista
+      guardarUsuario({
+        id: null, // sin id = usuario nuevo
+        run: runIngresado,
+        nombre: valores.nombre.trim(),
+        apellidos: valores.apellidos.trim(),
+        correo: valores.correo.trim(),
+        tipo: 'Cliente',
+        region: valores.region,
+        comuna: valores.comuna,
+        direccion: valores.direccion.trim(),
+      })
       setExito(true)
       setTimeout(() => navegar('/login'), 1200)
     }

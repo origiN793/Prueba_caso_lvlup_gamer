@@ -7,6 +7,8 @@ import AdminLayout from './componentes/admin/AdminLayout.jsx'
 import Dashboard from './paginas/admin/Dashboard.jsx'
 import ProductosAdmin from './paginas/admin/ProductosAdmin.jsx'
 import FormularioProducto from './paginas/admin/FormularioProducto.jsx'
+import UsuariosAdmin from './paginas/admin/UsuariosAdmin.jsx'
+import FormularioUsuario from './paginas/admin/FormularioUsuario.jsx'
 import Carrito from './componentes/Carrito.jsx'
 import Inicio from './paginas/Inicio.jsx'
 import Productos from './paginas/Productos.jsx'
@@ -91,6 +93,9 @@ function App() {
           <Route path="productos" element={<ProductosAdmin />} />
           <Route path="productos/nuevo" element={<FormularioProducto />} />
           <Route path="productos/editar/:id" element={<FormularioProducto />} />
+          <Route path="usuarios" element={<UsuariosAdmin />} />
+          <Route path="usuarios/nuevo" element={<FormularioUsuario />} />
+          <Route path="usuarios/editar/:id" element={<FormularioUsuario />} />
         </Route>
       </Routes>
 
