@@ -2,9 +2,10 @@ import { useState } from 'react'
 import { Container } from 'react-bootstrap'
 import Buscador from '../componentes/Buscador.jsx'
 import Catalogo from '../componentes/Catalogo.jsx'
-import productos from '../data/productos.js'
+import { obtenerProductos } from '../data/adminDatos.js'
 
 function Productos({onAgregar}) {
+    const [productos] = useState(obtenerProductos)
     const [texto, setTexto] = useState('')
     const [categoria, setCategoria] = useState('Todas')
 

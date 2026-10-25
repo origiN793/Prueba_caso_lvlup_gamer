@@ -1,10 +1,13 @@
+import { useState } from 'react'
 import { Container, Row, Col, Card, } from 'react-bootstrap'
 import Portada from '../componentes/Portada.jsx'
 import Catalogo from '../componentes/Catalogo.jsx'
-import productos from '../data/productos.js'
+import { obtenerProductos } from '../data/adminDatos.js'
 
 // Recibe onAgregar desde App para que las tarjetas puedan agregar al carrito.
 function Inicio({ onAgregar }) {
+  // Lee los datos guardados por el admin
+  const [productos] = useState(obtenerProductos)
   // Los destacados son los primeros 6 productos del arreglo
   const destacados = productos.slice(0, 6)
 
