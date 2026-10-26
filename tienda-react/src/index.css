@@ -72,3 +72,10 @@ body {
 .selector-cantidad {
   max-width: 180px;
 }
+
+.imagen-carrito {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  background-color: #fff;
+}
