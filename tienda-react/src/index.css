@@ -33,3 +33,42 @@ body {
 .imagen-articulo {
   max-width: 600px;
 }
+
+.barra-admin {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .barra-admin {
+    width: 240px;
+    flex-shrink: 0;
+  }
+}
+
+.barra-admin .nav-link {
+  color:  #cbd5e1;
+}
+
+.barra-admin .nav-link.active {
+  background-color: #198754;
+  color: #fff;
+}
+
+.miniatura-producto {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  background-color: #fff;
+}
+
+.imagen-detalle {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  background-color: #fff;
+  padding: 1rem;
+}
+
+.selector-cantidad {
+  max-width: 180px;
+}
