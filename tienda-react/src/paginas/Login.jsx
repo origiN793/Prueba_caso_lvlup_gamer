@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import { Container, Card, Form, Button, Alert } from 'react-bootstrap'
-import { Link, useNavigate } from 'react-router'
+import { Link, useLocation, useNavigate } from 'react-router'
+import { obtenerUsuarios } from '../data/adminDatos.js'
 import { validarCorreo, validarPassword } from '../utils/validaciones.js'
 
-function Login() {
+function Login({ onIniciarSesion }) {
   const [valores, setValores] = useState({ correo: '', clave: '' })
   const [errores, setErrores] = useState({})
   const [exito, setExito] = useState(false)
-  // useNavigate permite cambiar de ruta desde el código
   const navegar = useNavigate()
+  const ubicacion = useLocation() // ubicacion.state.desde: la página que pidió iniciar sesión
 
   function cambiar(evento) {
     const { name, value } = evento.target
@@ -22,12 +23,28 @@ function Login() {
       correo: validarCorreo(valores.correo),
       clave: validarPassword(valores.clave),
     }
+
+    // Si el formato es correcto, buscamos la cuenta entre los usuarios registrados
+    let usuario = null
+    if (nuevosErrores.correo === '') {
+      const correo = valores.correo.trim().toLowerCase()
+      usuario = obtenerUsuarios().find((u) => u.correo.toLowerCase() === correo)
+      if (!usuario) nuevosErrores.correo = 'No existe una cuenta con ese correo.'
+    }
     setErrores(nuevosErrores)
 
     if (Object.values(nuevosErrores).every((mensaje) => mensaje === '')) {
+      // Guardamos solo lo necesario (nunca contraseñas)
+      onIniciarSesion({
+        id: usuario.id,
+        nombre: usuario.nombre,
+        correo: usuario.correo,
+        tipo: usuario.tipo,
+      })
       setExito(true)
-      // Se llama dentro de un evento (nunca durante el renderizado)
-      setTimeout(() => navegar('/'), 1000)
+
+      const destino = ubicacion.state?.desde ?? (usuario.tipo === 'Administrador' ? '/admin' : '/')
+      setTimeout(() => navegar(destino), 1000)
     }
   }
 
@@ -36,9 +53,12 @@ function Login() {
       <Card body className="shadow-sm">
         <h1 className="h3 mb-3">Iniciar sesión</h1>
 
-        {exito && (
-          <Alert variant="success">Sesión iniciada correctamente (simulación).</Alert>
+        {ubicacion.state?.desde && !exito && (
+          <Alert variant="info" className="py-2">
+            Inicia sesión para continuar.
+          </Alert>
         )}
+        {exito && <Alert variant="success">Sesión iniciada correctamente.</Alert>}
 
         <Form onSubmit={enviar} noValidate>
           <Form.Group className="mb-3" controlId="correo">

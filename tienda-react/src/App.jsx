@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router'
+import { obtenerSesion, guardarSesion, borrarSesion } from './utils/sesion.js'
+
 
 import Layout from './componentes/Layout.jsx'
 import Carrito from './componentes/Carrito.jsx'
@@ -13,6 +15,7 @@ import Contacto from './paginas/Contacto.jsx'
 import Login from './paginas/Login.jsx'
 import Registro from './paginas/Registro.jsx'
 import NoEncontrada from './paginas/NoEncontrada.jsx'
+import RutaProtegida from './componentes/RutaProtegida.jsx'
 
 import AdminLayout from './componentes/admin/AdminLayout.jsx'
 import Dashboard from './paginas/admin/Dashboard.jsx'
@@ -36,6 +39,18 @@ function App() {
 
   const [carrito, setCarrito] = useState(cargarCarritoGuardado)
   const [mostrarCarrito, setMostrarCarrito] = useState(false)
+
+  const [sesion, setSesion] = useState(obtenerSesion)
+
+  function iniciarSesion(usuario) {
+    guardarSesion(usuario)
+    setSesion(usuario)
+  }
+
+  function cerrarSesion() {
+    borrarSesion()
+    setSesion(null)
+  }
 
   useEffect(() => {
     localStorage.setItem(CLAVE_CARRITO, JSON.stringify(carrito))
@@ -93,7 +108,7 @@ function App() {
         {/* ---------- Tienda ---------- */}
         <Route
           path="/"
-          element={<Layout cantidad={cantidadTotal} onVerCarrito={() => setMostrarCarrito(true)} />}
+          element={<Layout cantidad={cantidadTotal} onVerCarrito={() => setMostrarCarrito(true)} sesion={sesion} onCerrarSesion={cerrarSesion} />}
         >
           <Route index element={<Inicio onAgregar={agregarAlCarrito} />} />
           <Route path="productos" element={<Productos onAgregar={agregarAlCarrito} />} />
@@ -102,21 +117,23 @@ function App() {
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:id" element={<DetalleBlog />} />
           <Route path="contacto" element={<Contacto />} />
-          <Route path="login" element={<Login />} />
+          <Route path="login" element={<Login onIniciarSesion={iniciarSesion} />} />
           <Route path="registro" element={<Registro />} />
           {/* Comodín: atrapa cualquier dirección que no coincida con las anteriores */}
           <Route path="*" element={<NoEncontrada />} />
         </Route>
 
-        {/* ---------- Panel de administración: tiene su propio layout ---------- */}
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="productos" element={<ProductosAdmin />} />
-          <Route path="productos/nuevo" element={<FormularioProducto />} />
-          <Route path="productos/editar/:id" element={<FormularioProducto />} />
-          <Route path="usuarios" element={<UsuariosAdmin />} />
-          <Route path="usuarios/nuevo" element={<FormularioUsuario />} />
-          <Route path="usuarios/editar/:id" element={<FormularioUsuario />} />
+        {/* ---------- Panel de administración: solo para administradores ---------- */}
+        <Route element={<RutaProtegida sesion={sesion} soloAdmin />}>
+          <Route path="/admin" element={<AdminLayout sesion={sesion} onCerrarSesion={cerrarSesion} />}>
+            <Route index element={<Dashboard />} />
+            <Route path="productos" element={<ProductosAdmin />} />
+            <Route path="productos/nuevo" element={<FormularioProducto />} />
+            <Route path="productos/editar/:id" element={<FormularioProducto />} />
+            <Route path="usuarios" element={<UsuariosAdmin />} />
+            <Route path="usuarios/nuevo" element={<FormularioUsuario />} />
+            <Route path="usuarios/editar/:id" element={<FormularioUsuario />} />
+          </Route>
         </Route>
       </Routes>
 
