@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router'
 
 import Layout from './componentes/Layout.jsx'
 import AdminLayout from './componentes/admin/AdminLayout.jsx'
+import DetalleProducto from './paginas/DetalleProdcuto.jsx'
 import Dashboard from './paginas/admin/Dashboard.jsx'
 import ProductosAdmin from './paginas/admin/ProductosAdmin.jsx'
 import FormularioProducto from './paginas/admin/FormularioProducto.jsx'
@@ -46,19 +47,28 @@ function App() {
     document.title = `(${cantidadTotal}) Level-Up Gamer`
   }, [cantidadTotal])
 
-  function agregarAlCarrito(producto) {
-    setCarrito((carritoActual) => {
-      const existe = carritoActual.find((item) => item.codigo === producto.codigo)
-      if (existe) {
-        return carritoActual.map((item) =>
-          item.codigo === producto.codigo
-            ? { ...item, cantidad: item.cantidad + 1 }
-            : item,
-        )
-      }
-      return [...carritoActual, { ...producto, cantidad: 1 }]
-    })
+  // Devuelve true si se agregó, false si no alcanzaba el stock
+function agregarAlCarrito(producto, cantidad = 1) {
+  const existe = carrito.find((item) => item.codigo === producto.codigo)
+  const enCarrito = existe ? existe.cantidad : 0
+
+  if (enCarrito + cantidad > producto.stock) {
+    alert(`Solo quedan ${producto.stock} unidades disponibles.`)
+    return false
   }
+
+  setCarrito((carritoActual) => {
+    if (existe) {
+      return carritoActual.map((item) =>
+        item.codigo === producto.codigo
+          ? { ...item, cantidad: item.cantidad + cantidad }
+          : item,
+      )
+    }
+    return [...carritoActual, { ...producto, cantidad }]
+  })
+  return true
+}
 
   function quitarDelCarrito(codigo) {
     setCarrito((carritoActual) =>
@@ -78,6 +88,7 @@ function App() {
         >
           <Route index element={<Inicio onAgregar={agregarAlCarrito} />} />
           <Route path="productos" element={<Productos onAgregar={agregarAlCarrito} />} />
+          <Route path="producto/:codigo" element={<DetalleProducto onAgregar={agregarAlCarrito} />} />
           <Route path="nosotros" element={<Nosotros />} />
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:id" element={<DetalleBlog />} />
