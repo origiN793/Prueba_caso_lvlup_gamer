@@ -1,7 +1,7 @@
 import { Outlet, NavLink, Link } from 'react-router'
-import { Nav } from 'react-bootstrap'
+import { Nav, Button } from 'react-bootstrap'
 
-function AdminLayout() {
+function AdminLayout({ sesion, onCerrarSesion }) {
     return (
         <div className="d-flex flex-column flex-md-row min-vh-100">
             <aside className="barra-admin bg-dark text-white p-3">
@@ -15,6 +15,13 @@ function AdminLayout() {
                     <Nav.Link as={NavLink} to="/admin/productos">Productos</Nav.Link>
                     <Nav.Link as={NavLink} to="/admin/usuarios">Usuarios</Nav.Link>
                 </Nav>
+
+                <div className="text-white-50 small mt-4">
+                    {sesion.nombre} ({sesion.tipo})
+                </div>
+                <Button variant="outline-light" size="sm" className="mt-2" onClick={onCerrarSesion}>
+                    Cerrar sesión
+                </Button>
 
                 <Link to="/" className="d-block mt-4 text-white-50">
                     Volver a la tienda

@@ -64,7 +64,6 @@ function Dashboard() {
         <h2 className="h5">Bienvenida</h2>
         <p>
           Desde aquí puedes gestionar el catálogo de productos y las cuentas de usuario.
-          Los cambios se guardan en tu navegador (localStorage) para esta entrega.
         </p>
         <div className="d-flex gap-2 flex-wrap">
           <Button as={Link} to="/admin/productos/nuevo" variant="success">
