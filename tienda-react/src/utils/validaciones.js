@@ -1,6 +1,3 @@
-// Reglas de validación de formularios.
-// Cada función devuelve un mensaje de error, o '' si el dato es válido.
-
 const dominiosPermitidos = ['duoc.cl', 'profesor.duoc.cl', 'gmail.com']
 
 export function validarNombre(valor) {

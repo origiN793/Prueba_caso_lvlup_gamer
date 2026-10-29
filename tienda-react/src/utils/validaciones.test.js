@@ -1,5 +1,6 @@
 import { describe } from 'vitest'
 import {
+    validarNombre,
     validarCorreo,
     validarComentario,
     validarTexto,
@@ -12,6 +13,29 @@ import {
 
 // si la funcion devuelve '' significa que el dato es valido
 
+describe('validarNombre', () => {
+    it('rechaza un nombre vacío', () => {
+    expect(validarNombre('')).toBe('El nombre es obligatorio.')
+    })
+
+    it('rechaza un nombre formado solo por espacios', () => {
+    expect(validarNombre('   ')).toBe('El nombre es obligatorio.')
+    })
+
+    it('rechaza un nombre de más de 100 caracteres', () => {
+    const largo = 'a'.repeat(101)
+    expect(validarNombre(largo)).toBe('El nombre no puede tener más de 100 caracteres.')
+    })
+
+    it('acepta un nombre de exactamente 100 caracteres', () => {
+    const limite = 'a'.repeat(100)
+    expect(validarNombre(limite)).toBe('')
+    })
+
+    it('acepta un nombre normal y no cuenta los espacios de los extremos', () => {
+    expect(validarNombre('  Ana  ')).toBe('')
+    })
+})
 
 describe('validarCorreo', () => {
     it('exige un correo', () => {
